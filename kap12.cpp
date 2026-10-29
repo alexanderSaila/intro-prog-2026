@@ -105,7 +105,7 @@ void froaSlumptalsgeneratorn ( unsigned int fro ){
 // fröat slumptal
 unsigned int froatSlumptal () { // BUGGIG
     froaSlumptalsgeneratorn ( time ( nullptr )) ;
-    this_thread::sleep_for(milliseconds(1000));
+    this_thread::sleep_for(milliseconds(1000)); // för att skapa ett nytt frö varje gång
     return ettSlumptal () ;
 }
 void provaFroatSlumptal () {
