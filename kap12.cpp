@@ -205,7 +205,16 @@ void jamnforKvadratBerakningar(double x){
 // **************************************************
 // ************* FIBONACCI ************************** [12.9]
 // **************************************************
-
+void skrivUtFibonacci(int n){
+    int preNum = 0;
+    int curNum = 1;
+    for(int i=1; i<=n; i++){
+        cout << i << ":" << curNum << endl;
+        int nextNum = curNum+preNum;
+        preNum = curNum;
+        curNum = nextNum;
+    }
+}
 
 
 
@@ -220,21 +229,26 @@ void jamnforKvadratBerakningar(double x){
 // ************* ESTIMERA PI ************************ [12.11]
 // **************************************************
 double estimatAvCirkelareaFranRadie ( int radie ) {
-    // TODO
+    int antalKvadrater = 0;
+    for(int x = -radie; x<=radie; x++){
+        for(int y = -radie; y<=radie; y++){
+            if( sqrt(x*x + y*y) <= radie){
+                antalKvadrater++;
+            }
+        }
+    }
+    return antalKvadrater;
 }
-// Returnerar ett estimat av talet pi. Stö rre radie
-// ger ett bä ttre estimat .
 double estimatAvPiFranRadie ( int radie ) {
-    // pi*r2 = area
-    // pi = area /r2
-    // TODO
+    return estimatAvCirkelareaFranRadie(radie)/(radie*radie);
 }
 void gorFleraEstimatAvPi () {
-    for (int radie = 1 ; radie < 10000; radie = radie *2) {
+    for (int radie = 5 ; radie < 10000; radie = radie *2) {
         double pi = estimatAvPiFranRadie ( radie );
         cout << " radie = " << radie << ", pi estimeras till " << pi <<
             endl ;
-
+    }
+}
 
 
 
@@ -275,5 +289,5 @@ void gorFleraEstimatAvPi () {
 // ************* TEST FUNKTION ***********
 // ***************************************
 void testKap12(){
-
+    skrivUtFibonacci(10);
 }
