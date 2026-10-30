@@ -361,7 +361,12 @@ void skrivUtRationellAproximation(double x, int antalSiffror){
 // ************* ÄR PRIMTAL ************************* [12.13]
 // **************************************************
 bool arPrimtal(int n){
-    // TODO
+    for(int i=n-1; i>1; i--){
+        if(n%i == 0){
+            return false;
+        }
+    }
+    return true;
 }
 void provaPrimtal(){
     cout << endl
@@ -374,7 +379,7 @@ void provaPrimtal(){
         if (tal<=0)
             break;
         if (arPrimtal(tal))
-            cout << tal << " ar primtal" << endl;
+            cout << tal << " är primtal" << endl;
         else cout << tal << " kan faktoriseras" << endl;
     }
     cout << "(avslutar provaPrimtal)" << endl;
@@ -414,7 +419,5 @@ void testaPrimtal() {
 // ************* TEST FUNKTION ***********
 // ***************************************
 void testKap12(){
-    for(int i=1; i<=4; i++){
-        skrivUtRationellAproximation(M_PI, i);
-    }
+    testaPrimtal();
 }
