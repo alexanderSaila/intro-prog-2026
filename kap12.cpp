@@ -317,13 +317,76 @@ void gorFleraEstimatAvPi () {
 // **************************************************
 // ************* RATIONELL APPROX ******************* [12.12]
 // **************************************************
+void skrivRationellApproximationAvPi(){
+    double const pi = M_PI;
+    double bästaApprox = pi;
+    int bästaT = pi;
+    int bästaN = pi;
+    for(int t=1; t<100; t++){
+        for(int n=1; n<100; n++){
+            double tal = (double)t/n;
+            double diff = abs(pi - tal);
+            if(diff < bästaApprox){
+                bästaT = t;
+                bästaN = n;
+                bästaApprox = diff;
+            }
+        }
+    }
+    cout << "Bästa approximation : " << bästaT << "/" << bästaN << endl;
+}
 
+void skrivUtRationellAproximation(double x, int antalSiffror){
+    double bästaApprox = x;
+    int bästaT = x;
+    int bästaN = x;
 
+    int gräns = pow(10,antalSiffror);
+    for(int t=1; t<gräns; t++){
+        for(int n=1; n<gräns; n++){
+            double tal = (double)t/n;
+            double diff = abs(x - tal);
+
+            if(diff < bästaApprox){
+                bästaT = t;
+                bästaN = n;
+                bästaApprox = diff;
+            }
+        }
+    }
+    cout << "Bästa approximation : " << bästaT << "/" << bästaN << endl;
+}
 
 // **************************************************
 // ************* ÄR PRIMTAL ************************* [12.13]
 // **************************************************
-
+bool arPrimtal(int n){
+    // TODO
+}
+void provaPrimtal(){
+    cout << endl
+         << "provaPrimtal" << endl
+         << "Knappa in tal, avsluta med 0." << endl;
+    while (true){
+        cout << "ge tal:";
+        int tal = 1;
+        cin >> tal;
+        if (tal<=0)
+            break;
+        if (arPrimtal(tal))
+            cout << tal << " ar primtal" << endl;
+        else cout << tal << " kan faktoriseras" << endl;
+    }
+    cout << "(avslutar provaPrimtal)" << endl;
+}
+void testaPrimtal() {
+    cout << "testaPrimtal" << endl;
+    assert( arPrimtal(7) );
+    assert( arPrimtal(7919) );
+    assert( !arPrimtal(7913) );
+    assert( !arPrimtal(10201) );
+    cout << "testaPrimtal lyckades" << endl;
+}
 
 
 
@@ -351,5 +414,7 @@ void gorFleraEstimatAvPi () {
 // ************* TEST FUNKTION ***********
 // ***************************************
 void testKap12(){
-    ritaMedText();
+    for(int i=1; i<=4; i++){
+        skrivUtRationellAproximation(M_PI, i);
+    }
 }
