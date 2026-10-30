@@ -221,7 +221,69 @@ void skrivUtFibonacci(int n){
 // **************************************************
 // ************* RITA MED TEXT ********************** [12.10]
 // **************************************************
+void skrivMultiplikationsmatris(){
+    cout << "MultiplikationsMatris" << endl;
+}
 
+void ritaFylldRektangel(int hojd, int bredd){
+    cout << "Fylld Rektangel" << endl;
+    for(int h=0; h<hojd; h++){
+        for(int b=0; b<bredd; b++){
+            cout << "#";
+        }
+        cout << endl;
+    }
+}
+
+void ritaRektangel(int hojd, int bredd){
+    cout << "Rektangel" << endl;
+    for(int h=0; h<hojd; h++){
+        cout << "#";
+        for(int b=1; b<bredd-1; b++){
+            if(h == 0 || h == hojd-1){
+                cout << "#";
+            }else{
+                cout << " ";
+            }
+        }
+        cout << "#" << endl;
+    }
+}
+
+void ritaFylldTriangel(int hojd){
+    cout << "Fylld Triangel" << endl;
+    for(int h=1; h<=hojd; h++){
+        for(int b=0; b<h; b++){
+            cout << "#";
+        }
+        cout << endl;
+    }
+}
+
+void ritaFyllCirkel(int radie){
+    cout << "Fylld Cirkel" << endl;
+    for(int x = -radie; x<=radie; x++){
+        for(int y = -radie; y<=radie; y++){
+            double hypo = sqrt(x*x + y*y);
+            if(hypo < radie)
+                cout << "##";
+            else cout << "  ";
+        }
+        cout << endl;
+    }
+}
+
+void ritaMedText(){
+    skrivMultiplikationsmatris();
+    cout << endl;
+    ritaFylldRektangel(4,20);
+    cout << endl;
+    ritaRektangel(4,20);
+    cout << endl;
+    ritaFylldTriangel(4);
+    cout << endl;
+    ritaFyllCirkel(5);
+}
 
 
 
@@ -289,5 +351,5 @@ void gorFleraEstimatAvPi () {
 // ************* TEST FUNKTION ***********
 // ***************************************
 void testKap12(){
-    skrivUtFibonacci(10);
+    ritaMedText();
 }
