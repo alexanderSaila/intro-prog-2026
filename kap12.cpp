@@ -25,13 +25,9 @@ void kylskapMedWhileTrue(){
     cout << "Kylskåp med while true " << endl ;
     double temperatur = 0;
 
-    while (true) {
+    while (temperatur <= -273) {
         cout << "Measure a new temperature:";
         cin >> temperatur;
-
-        if(temperatur <= -273){
-            break;
-        }
 
         if(temperatur <= 2){
             cout << "Temperature is too cold" << endl;
@@ -401,11 +397,24 @@ void testaPrimtal() {
 
 
 
-
 // **************************************************
 // ************* MATTE 3X+1 ************************* [12.15]
 // **************************************************
-
+void skrivCollatzSekvens(long int startvarde){
+    for(int i=0; i<25; i++){
+        startvarde = (startvarde%2 == 0 ? startvarde/2 : startvarde*3+1);
+        cout << startvarde << ", ";
+    }
+}
+long int collatzMax(long int startvarde){
+    int högstaCollatz = startvarde;
+    for(int i=0; i<25; i++){
+        startvarde = (startvarde%2 == 0 ? startvarde/2 : startvarde*3+1);
+        if(startvarde > högstaCollatz)
+            högstaCollatz = startvarde;
+    }
+    return högstaCollatz;
+}
 
 
 
@@ -419,5 +428,5 @@ void testaPrimtal() {
 // ************* TEST FUNKTION ***********
 // ***************************************
 void testKap12(){
-    testaPrimtal();
+    jamforFleraSummaberakningar();
 }
