@@ -75,31 +75,35 @@ void jamforFleraSummaberakningar () {
 // ************* SLUMPTAL ******************* [12.5]
 // ******************************************
 unsigned int PSEUDOSLUMPTAL = 42;
+
 unsigned int ettSlumptal () {
     PSEUDOSLUMPTAL = 1664525* PSEUDOSLUMPTAL + 1013904223;
-    return PSEUDOSLUMPTAL ;
+    return PSEUDOSLUMPTAL;
 }
 
 void undersokSlumptalsgeneratorn () {
-    cout << " undersokSlumptalsgeneratorn " << endl ;
+    cout << " undersokSlumptalsgeneratorn " << endl;
+
     unsigned long long int antalAnrop = 0;
     unsigned long long int foregaendeAntal = 0;
+
     int antal42or = 0;
+
     while ( antal42or < 4) {
-        unsigned int i = ettSlumptal () ;
+        unsigned int i = ettSlumptal ();
         antalAnrop += 1;
         if (i == 42) {
-            cout << "såg 42 efter " << antalAnrop << " anrop ." ;
-            if ( antal42or ==0) cout << " ( den första 42: an)" << endl ;
-            else cout << " dvs . " << antalAnrop - foregaendeAntal << "steg efter föregående 42: a" << endl ;
-            foregaendeAntal = antalAnrop ;
+            cout << "såg 42 efter " << antalAnrop << " anrop .";
+            if ( antal42or ==0) cout << " ( den första 42: an)" << endl;
+            else cout << " dvs . " << antalAnrop - foregaendeAntal << "steg efter föregående 42: a" << endl;
+            foregaendeAntal = antalAnrop;
             antal42or += 1;
         }
     }
 }
 
-void froaSlumptalsgeneratorn ( unsigned int fro ){
-    PSEUDOSLUMPTAL = fro ;
+void froaSlumptalsgeneratorn (unsigned int fro){ //seed
+    PSEUDOSLUMPTAL = fro;
 }
 
 // fröat slumptal
@@ -428,5 +432,5 @@ long int collatzMax(long int startvarde){
 // ************* TEST FUNKTION ***********
 // ***************************************
 void testKap12(){
-    jamforFleraSummaberakningar();
+    undersokSlumptalsgeneratorn();
 }

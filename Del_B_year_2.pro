@@ -12,4 +12,5 @@ SOURCES += \
     kap03.cpp \
     kap05.cpp \
     kap12.cpp \
-    kap13.cpp
+    kap13.cpp \
+    kap14.cpp
